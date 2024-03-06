@@ -1,0 +1,27 @@
+# events.yml
+
+one:
+  title: Event1
+  event_type: Type1
+  place: Place1
+  num_of_people: 10
+  description: Description1
+  event_date: <%= DateTime.now %>
+  created_at: <%= DateTime.now %>
+  updated_at: <%= DateTime.now %>
+  user_id: 1
+  image: {}
+  id: 1
+
+two:
+  title: Event2
+  event_type: Type2
+  place: Place2
+  num_of_people: 20
+  description: Description2
+  event_date: <%= DateTime.now %>
+  created_at: <%= DateTime.now %>
+  updated_at: <%= DateTime.now %>
+  user_id: 2
+  image: {}
+  id: 2

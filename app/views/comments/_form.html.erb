@@ -1,0 +1,12 @@
+<%= render 'shared/errors', object: @comment %>
+
+<%= form_with model: [@event, @comment], data: { turbo: false } do |f| %>
+  <div class="mb-3 row">
+    <div>
+      <%= f.text_area :body, placeholder: t('comments.form.placeholder'), required: true, class: 'form-control' %>
+    </div>
+  </div>
+
+  <%= f.submit t('comments.form.submit'), class: 'btn btn-dark' %>
+  <br/>
+<% end %>

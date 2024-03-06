@@ -1,0 +1,22 @@
+<% provide :page_title, t('admin_users.page_title') %>
+
+<h1><%= t('admin_users.heading') %></h1>
+
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col"><%= t('activerecord.attributes.user.username') %></th>
+    <th scope="col"><%= t('activerecord.attributes.user.usersurname') %></th>
+    <th scope="col"><%= t('activerecord.attributes.user.email') %></th>
+    <th scope="col"><%= t('activerecord.attributes.user.role') %></th>
+    <th scope="col"><%= t('activerecord.attributes.user.created_at') %></th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= render @users %>
+  </tbody>
+</table>
+
+<%= paginate @users %>

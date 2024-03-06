@@ -1,0 +1,200 @@
+en:
+  activerecord:
+    models:
+      event: "Event"
+      comment: "Comment"
+      user: "User"
+    attributes:
+      event:
+        title: "Title"
+        event_type: "Event type"
+        place: "Place"
+        num_of_people: "Number of people"
+        description: "Description"
+        event_date: "Event date"
+        created_at: "Created at"
+        updated_at: "Updated at"
+        image: "Image"
+      comment:
+        body: "Text"
+        created_at: "Created at"
+        updated_at: "Updated at"
+      user:
+        username: "Name"
+        usersurname: "Second name"
+        email: "Email"
+        role: "Role"
+        created_at: "Created at"
+        updated_at: "Updated at"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+  menu:
+    home: "Home"
+    events: "Events"
+    admin: "All users"
+  nav:
+    edit_profile: "Edit profile"
+    log_out: "Log Out"
+    sign_up: "Sign up"
+    log_in: "Log in"
+    exit_confirmation: "Exit?"
+  buttons:
+    sign_in: "Sign in"
+    save_changes: "Save changes"
+  events:
+    event_types:
+      cinema: "Cinema"
+      theatre: "Theatre"
+      concerts: "Concerts"
+      exhibitions: "Exhibitions"
+      other: "Other"
+      Cinema: "Cinema"
+      Theatre: "Theatre"
+      Concerts: "Concerts"
+      Exhibitions: "Exhibitions"
+      Other: "Other"
+    success_created: "Event created!"
+    success_updated: "Event updated!"
+    success_deleted: "Event deleted!"
+    success_registered: "Successfully registered for the event."
+    error_registration_failed: "Registration failed."
+    notice_already_registered: "You are already registered for this event."
+    error_no_available_spots: "No available spots for this event."
+    error_past_event_registration: "You can't register for past events."
+    show:
+      success_created: "Comment created!"
+    new:
+      success_created: "Event created!"
+    edit:
+      success_updated: "Event updated!"
+    destroy:
+      success: "Event deleted!"
+    register:
+      success_registered: "Successfully registered for the event."
+      error_registration_failed: "Registration failed."
+      notice_already_registered: "You are already registered for this event."
+      error_no_available_spots: "No available spots for this event."
+      error_past_event_registration: "You can't register for past events."
+    remove_registration:
+      success_removed_from_events: "Successfully removed from your events."
+    show:
+      comment_error: 'Failed to create a comment.'
+    page_title: "Events"
+    heading: "Events"
+    new_event: "New event"
+    show_all_events: "Show all events (+past)"
+    filter: "Filter"
+    image_alt: "Image"
+    already_registered: "You are already registered."
+    login_to_register: "Log in to register."
+    info: "Info"
+    edit: "Edit"
+    destroy_b: "Destroy"
+    confirmation: "Are you sure?"
+    register: "Register"
+    destroy:
+      success: "Event deleted!"
+    form:
+      submit: "Submit"
+  actions:
+    edit: "Edit"
+    delete: "Delete"
+    confirmation: "Are you sure?"
+  edit_user:
+    heading: "Edit user"
+  admin_users:
+    page_title: "Admin Users"
+    heading: "Admin Users"
+  edit_answer:
+    heading: "Edit answer"
+  edit_event:
+    heading: "Edit event"
+  event_info:
+    heading: "Info about %{title}"
+    event_type: "Event type"
+    place: "Place"
+    date: "Date"
+    available_spots: "Available spots"
+    description: "Description"
+    updated: "Updated"
+    image_alt: "Image"
+    back: "Back"
+    already_registered: "You are already registered."
+    login_to_register: "Log in to register."
+    register: "Register"
+    comments: "Comments"
+    no_comments: "No comments yet."
+  my_events:
+    title: "My Events"
+    show_all_events: "Show all events (+past)"
+    filter: "Filter"
+    delete: "Delete"
+    confirmation: "Are you sure?"
+  welcome:
+    title: "Welcome to Afisha!"
+    sign_up_or_log_in: "Sign up or log in to register for events."
+    registered_events_page: "On this page you will have the events that you have registered for."
+    recommendations: "Our recommendations:"
+  login:
+    title: "Log In"
+    email_label: "E-mail"
+    email_placeholder: "E-mail"
+    password_label: "Password"
+    password_placeholder: "Password"
+    submit: "Log in"
+  users:
+    create:
+      account_created: "Account created!"
+    update:
+      profile_changed: "Your profile has been changed."
+    form:
+      name: "Name"
+      second_name: "Second Name"
+      email: "E-mail"
+      password: "Password"
+      role: "Role"
+      password_confirmation: "Password Confirmation"
+      name_placeholder: "Enter your name"
+      second_name_placeholder: "Enter your second name"
+      email_placeholder: "Enter your e-mail"
+      password_placeholder: "Enter your password"
+      password_confirmation_placeholder: "Confirm your password"
+      sign_in: "Sign In"
+      save_changes: "Save Changes"
+  edit_profile:
+    title: "Edit Profile"
+    heading: "Edit your profile"
+  registration:
+    title: "Registration"
+    heading: "Create a new account"
+  new_event:
+    page_title: "New event"
+    heading: "New event"
+  comments:
+    form:
+      placeholder: "Write your comment"
+      submit: "Submit comment!"
+    create:
+      success: 'Comment created!'
+      error: 'Failed to create the comment.'
+      update:
+        success: 'Comment updated!'
+        error: 'Failed to update the comment.'
+      destroy:
+        success: 'Comment deleted!'
+        error: 'Failed to delete the comment.'
+  events_controller:
+    success_created: "Event created!"
+    success_updated: "Event updated!"
+    success_deleted: "Event deleted!"
+    error_event_not_found: "Event not found"
+    alert_sign_in: "Please sign in to register for events."
+  sessions:
+    create:
+      success_welcome_back: "Welcome back!"
+      error_incorrect_credentials: "Incorrect email and/or password."
+    destroy:
+      success_logged_out: "You have logged out."
+
+
+

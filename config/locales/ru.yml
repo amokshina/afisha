@@ -1,0 +1,196 @@
+ru:
+  activerecord:
+    models:
+      event: "Мероприятие"
+      comment: "Комментарий"
+      user: "Пользователь"
+    attributes:
+      event:
+        title: "Название"
+        event_type: "Тип мероприятия"
+        place: "Место"
+        num_of_people: "Количество людей"
+        description: "Описание"
+        event_date: "Дата мероприятия"
+        created_at: "Создано: "
+        updated_at: "Обновлено: "
+        image: "Изображение"
+      comment:
+        body: "Текст"
+        created_at: "Создано: "
+        updated_at: "Обновлено: "
+      user:
+        username: "Имя"
+        usersurname: "Фамилия"
+        email: "Email"
+        created_at: "Создано: "
+        updated_at: "Обновлено: "
+        role: "Роль"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+  menu:
+    home: "Главная"
+    events: "События"
+    admin: "Все пользователи"
+  nav:
+    edit_profile: "Редактировать профиль"
+    log_out: "Выйти"
+    sign_up: "Зарегистрироваться"
+    log_in: "Войти"
+    exit_confirmation: "Выйти?"
+  buttons:
+    sign_in: "Войти"
+    save_changes: "Сохранить изменения"
+  events:
+    event_types:
+      cinema: "Кино"
+      theatre: "Театр"
+      concerts: "Концерты"
+      exhibitions: "Выставки"
+      other: "Другое"
+      Cinema: "Кино"
+      Theatre: "Театр"
+      Concerts: "Концерты"
+      Exhibitions: "Выставки"
+      Other: "Другое"
+    success_created: "Мероприятие создано!"
+    success_updated: "Мероприятие обновлено!"
+    success_deleted: "Мероприятие удалено!"
+    success_registered: "Успешная регистрация на мероприятие."
+    error_registration_failed: "Не удалось зарегистрироваться."
+    notice_already_registered: "Вы уже зарегистрированы на это мероприятие."
+    error_no_available_spots: "Нет доступных мест для этого мероприятия."
+    error_past_event_registration: "Вы не можете зарегистрироваться на прошедшие мероприятия."
+    show:
+      success_created: "Комментарий создан!"
+      comment_error: 'Не удалось создать комментарий.'
+    new:
+      success_created: "Мероприятие создано!"
+    edit:
+      success_updated: "Мероприятие обновлено!"
+    destroy:
+      success: "Мероприятие удалено!"
+    register:
+      success_registered: "Успешная регистрация на мероприятие."
+      error_registration_failed: "Не удалось зарегистрироваться."
+      notice_already_registered: "Вы уже зарегистрированы на это мероприятие."
+      error_no_available_spots: "Нет доступных мест для этого мероприятия."
+      error_past_event_registration: "Вы не можете зарегистрироваться на прошедшие мероприятия."
+    remove_registration:
+        success_removed_from_events: "Успешно удалено из ваших мероприятий."
+    page_title: "События"
+    heading: "События"
+    new_event: "Новое событие"
+    show_all_events: "Показать все события (+прошедшие)"
+    filter: "Фильтр"
+    image_alt: "Изображение"
+    already_registered: "Вы зарегистрированы."
+    login_to_register: "Войдите, чтобы записаться."
+    info: "Инфо"
+    edit: "Редактировать"
+    destroy_b: "Удалить"
+    confirmation: "Вы уверены?"
+    register: "Записаться"
+    destroy:
+      success: "Событие удалено!"
+    form:
+      submit: "Отправить"
+  actions:
+    edit: "Редактировать"
+    delete: "Удалить"
+    confirmation: "Вы уверены?"
+  edit_user:
+    heading: "Редактировать пользователя"
+  admin_users:
+    page_title: "Администрирование пользователей"
+    heading: "Администрирование пользователей"
+  comments:
+    create:
+      success: 'Комментарий создан!'
+      error: 'Не удалось создать комментарий.'
+      update:
+        success: 'Комментарий обновлен!'
+        error: 'Не удалось обновить комментарий.'
+      destroy:
+        success: 'Комментарий удален!'
+        error: 'Не удалось удалить комментарий.'
+    form:
+      placeholder: "Напишите свой комментарий"
+      submit: "Отправить комментарий!"
+  edit_answer:
+    heading: "Редактировать ответ"
+  edit_event:
+    heading: "Редактировать событие"
+  event_info:
+    heading: "Информация о %{title}"
+    event_type: "Тип события"
+    place: "Место"
+    date: "Дата"
+    available_spots: "Доступные места"
+    description: "Описание"
+    updated: "Обновлено"
+    image_alt: "Изображение"
+    back: "Назад"
+    already_registered: "Вы уже зарегистрированы."
+    login_to_register: "Войдите, чтобы записаться."
+    register: "Записаться"
+    comments: "Комментарии"
+    no_comments: "Пока нет комментариев."
+  my_events:
+    title: "Мои события"
+    show_all_events: "Показать все события (+прошедшие)"
+    filter: "Фильтровать"
+    delete: "Удалить"
+    confirmation: "Вы уверены?"
+  welcome:
+    title: "Добро пожаловать в Афишу!"
+    sign_up_or_log_in: "Зарегистрируйтесь или войдите, чтобы записаться на мероприятия."
+    registered_events_page: "На этой странице вы найдете события, на которые вы зарегистрированы."
+    recommendations: "Наши рекомендации:"
+  login:
+    title: "Вход"
+    email_label: "Эл. почта"
+    email_placeholder: "Эл. почта"
+    password_label: "Пароль"
+    password_placeholder: "Пароль"
+    submit: "Войти"
+  users:
+    create:
+      account_created: "Аккаунт создан!"
+    update:
+      profile_changed: "Ваш профиль был изменен."
+    form:
+      name: "Имя"
+      second_name: "Фамилия"
+      email: "Эл. почта"
+      password: "Пароль"
+      role: "Роль"
+      password_confirmation: "Подтверждение пароля"
+      name_placeholder: "Введите ваше имя"
+      second_name_placeholder: "Введите вашу фамилию"
+      email_placeholder: "Введите вашу эл. почту"
+      password_placeholder: "Введите ваш пароль"
+      password_confirmation_placeholder: "Подтвердите ваш пароль"
+      sign_in: "Войти"
+      save_changes: "Сохранить изменения"
+  edit_profile:
+    title: "Редактировать профиль"
+    heading: "Редактировать ваш профиль"
+  registration:
+    title: "Регистрация"
+    heading: "Создайте новую учетную запись"
+  new_event:
+    page_title: "Новое мероприятие"
+    heading: "Новое мероприятие"
+  events_controller:
+    success_created: "Мероприятие создано!"
+    success_updated: "Мероприятие обновлено!"
+    success_deleted: "Мероприятие удалено!"
+    error_event_not_found: "Мероприятие не найдено."
+    alert_sign_in: "Пожалуйста, войдите, чтобы зарегистрироваться на мероприятия."
+  sessions:
+    create:
+      success_welcome_back: "Добро пожаловать обратно!"
+      error_incorrect_credentials: "Неверный адрес электронной почты и/или пароль."
+    destroy:
+      success_logged_out: "Вы вышли из системы."

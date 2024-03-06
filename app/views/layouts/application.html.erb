@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:page_title)) %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'styles' %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+    <!-- Подключение Bootstrap JS и Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body class="d-flex flex-column min-vh-100">
+    <header class="p-3 bg-dark text-white">
+      <div class="container">
+        <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li class="nav-item <%= 'active' if current_page?(root_path) %> beautiful">
+              <%= link_to t('menu.home'), root_path, class: 'nav-link px-2 text-white' %>
+            </li>
+            <li class="nav-item <%= 'active' if current_page?(events_path) %> beautiful">
+              <%= link_to t('menu.events'), events_path, class: 'nav-link px-2 text-white' %>
+            </li>
+            <% if policy([:admin, :user]).index? %>
+              <li class="nav-item <%= 'active' if current_page?(admin_users_path) %> beautiful">
+                <%= link_to t('menu.admin'), admin_users_path, class: 'nav-link px-2 text-white' %>
+              </li>
+            <% end %>
+          </ul>
+
+
+
+          <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
+            <% if user_signed_in? %>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= current_user.username %>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown1">
+                  <%= link_to t('nav.edit_profile'), edit_user_path(current_user), class: 'dropdown-item' %>
+                  <hr class="dropdown-divider">
+                  <%= link_to t('nav.log_out'), session_path, class: 'dropdown-item', data: { turbo_confirm: t('nav.exit_confirmation'), turbo_method: :delete } %>
+                </div>
+              </div>
+            <% else %>
+              <li class="nav-item <%= 'active' if current_page?(new_user_path) %> beautiful">
+                <%= link_to t('nav.sign_up'), new_user_path, class: 'nav-link px-2 text-white' %>
+              </li>
+
+              <li class="nav-item <%= 'active' if current_page?(new_user_path) %> beautiful">
+                <%= link_to t('nav.log_in'), new_session_path, class: 'nav-link px-2 text-white' %>
+              </li>
+            <% end %>
+          </ul>
+
+        </nav>
+      </div>
+    </header>
+
+  <main class="container mt-3">
+    <% flash.each do |k, v| %>
+      <div class="alert alert-<%= k %>">
+        <%= v %>
+      </div>
+    <% end %>
+    <%= yield %>
+  </main>
+
+    <%= render 'layouts/footer' %>
+
+  </body>
+
+</html>

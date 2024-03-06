@@ -1,0 +1,23 @@
+<div class="comment-container" id="comment-<%= comment.id %>">
+  <section class="card-header">
+    <h6>
+      <%= comment.user.username %>
+      <%= comment.user.usersurname %>
+    </h6>
+    <time datetime="<%= comment.formatted_created_at %>">
+      <%= comment.formatted_created_at %>
+    </time>
+  </section>
+  <hr>
+  <section class="card-text">
+    <p class="mb-2">
+      <%= comment.body %>
+    </p>
+  </section>
+  <% if policy(comment).destroy? %>
+    <%= link_to t('actions.delete'), event_comment_path(event, comment), class: 'btn btn-danger btn-sm', data: { turbo_confirm: t('actions.confirmation'), turbo_method: :delete } %>
+  <% end %>
+  <% if policy(comment).edit? %>
+    <%= link_to t('actions.edit'), edit_event_comment_path(event, comment), class: 'btn btn-outline-danger btn-sm' %>
+  <% end %>
+</div>

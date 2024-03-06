@@ -1,0 +1,80 @@
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Обработчик событий для клика по карточке
+        $('.card').click(function() {
+            var infoLink = $(this).data('info-link');
+            window.location.href = infoLink;
+        });
+    });
+</script>
+
+<% provide :page_title, t('events.page_title') %>
+
+<h1 class="mb-4"><%= t('events.heading') %></h1>
+
+<div class="d-flex justify-content-between align-items-center">
+  <% if policy(:event).create? %>
+    <%= link_to t('events.new_event'), new_event_path, class: 'btn btn-dark btn-lg' %>
+  <% end %>
+  <%= form_tag(events_path, method: :get, class: 'd-flex align-items-center') do %>
+    <div class="form-check me-3">
+      <%= check_box_tag(:past_events, 1, params[:past_events].present?, class: 'form-check-input') %>
+      <%= label_tag(:past_events, t('events.show_all_events'), class: 'form-check-label') %>
+    </div>
+    <%= submit_tag(t('events.filter'), class: 'btn btn-dark') %>
+  <% end %>
+</div>
+
+<%= paginate @events %>
+
+<div class="container mt-4">
+  <% @events.each_slice(2) do |events_slice| %>
+    <div class="row">
+      <% events_slice.each do |event| %>
+        <div class="col-md-6 mb-4">
+          <div class="card" style="width: 500px; height: 500px; overflow: hidden; border-radius: 10px;" data-info-link="<%= event_path(event) %>">
+
+            <% if event.image.attached? %>
+              <%= image_tag event.image, class: 'card-img-top', alt: t('events.image_alt'), style: 'height: 100%; object-fit: cover;' %>
+            <% else %>
+              <%= image_tag 'https://sun9-50.userapi.com/impf/nn82JlGK87gxDzhVP51Mcphr37Ye_8dsDWXNGQ/d1uhVpHKJyI.jpg?size=1280x966&quality=96&sign=41d7b837f52a40023c41b4630ea1a698&type=album', class: 'card-img-top', alt: t('events.image_alt'), style: 'height: 100%; object-fit: cover;' %>
+            <% end %>
+            <div class="card-img-overlay text-white">
+              <h3 class="card-title fw-bold">
+                <%= event.title %>
+              </h3>
+              <h6 class="card-text"><%= t('events.event_types.' + event.event_type) %></h6>
+              <p class="card-text"><%= l(event.event_date, format: :long) %>, <%= truncate event.place, length: 25 %></p>
+            </div>
+          </div>
+          <br>
+          <div class="d-flex ">
+            <% if user_signed_in? %>
+              <% if current_user.registered_for?(event) %>
+                <p><%= t('events.already_registered') %></p>
+              <% else %>
+                <%= form_with(url: register_event_path(event), method: :post) do |form| %>
+                  <%= form.submit t('events.register'), class: "btn btn-outline-dark mx-2" %>
+                <% end %>
+              <% end %>
+            <% else %>
+              <p><%= t('events.login_to_register') %></p>
+            <% end %>
+            <%= link_to t('events.info'), event_path(event), class: "btn btn-outline-dark mx-2" %>
+            <% if policy(event).edit? %>
+              <%= link_to t('events.edit'), edit_event_path(event), class: "btn btn-outline-dark mx-2" %>
+            <%end %>
+            <% if policy(event).destroy? %>
+              <%= link_to t('events.destroy_b'), event_path(event), data: { turbo_confirm: t('events.confirmation'), turbo_method: :delete },
+                          class: "btn btn-outline-dark mx-2" %>
+            <%end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @events %>

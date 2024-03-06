@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+.wrapper {
+  display: table;
+  height: 100%;
+}
+.content {
+  display: table-row;
+  height: 100%;
+}
+
+.custom-card-overlay {
+  position: absolute;
+  bottom: 0;
+}
+
+.field_with_errors {
+  .form-control {
+    border-color: #B00100;
+  }
+  label {
+    color: #B00100;
+  }
+}
+
+.comment-container {
+  border: 1px solid #ccc; /* Цвет рамки серый */
+  border-radius: 8px; /* Закругленные углы */
+  padding: 10px; /* Отступ внутри блока */
+  margin-bottom: 10px; /* Отступ снизу блока */
+}
+
+.comment-container time {
+  color: #888; /* Цвет времени серый */
+}
+
+.comment-container p {
+  margin: 0; /* Убираем внутренние отступы у параграфа */
+}
+
+.nav-item.active a {
+  font-weight: bold; /* Жирный текст */
+  border: 2px solid #2b3035; /* Обводка светло-серого цвета */
+  padding: 8px; /* Дополнительный отступ вокруг текста */
+  border-radius: 10px; /* Закругленные углы */
+}
+
+.beautiful a:hover {
+  background-color: #2b3035;
+  padding: 8px; /* Дополнительный отступ вокруг текста */
+  border-radius: 10px; /* Закругленные углы */
+}
+
+.pagination {
+  a {
+    color: #000; /* черный цвет текста */
+    background-color: #fff; /* белый цвет фона */
+    border: 1px solid #000; /* черная обводка */
+  }
+
+}

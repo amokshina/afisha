@@ -1,0 +1,78 @@
+<%= render 'shared/errors', object: @event %>
+
+<%= form_with model: @event, data: { turbo: false } do |f| %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label text-sm-end">
+      <%= f.label :title %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :title, placeholder: t('activerecord.attributes.event.title'), class: 'form-control'%>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label text-sm-end">
+      <%= f.label :event_type %>
+    </div>
+    <div class="col-sm-10">
+      <%= f.select :event_type, options_for_select(event_type_options), {}, class: 'form-select' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label text-sm-end">
+      <%= f.label :place %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :place, placeholder: t('activerecord.attributes.event.place'), class: 'form-control'%>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label text-sm-end">
+      <%= f.label :num_of_people %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_field :num_of_people,  placeholder: t('activerecord.attributes.event.num_of_people'), class: 'form-control'%>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label text-sm-end">
+      <%= f.label :event_date %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.datetime_field :event_date, class: 'form-control'%>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label text-sm-end">
+      <%= f.label :description %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_area :description,  placeholder: t('activerecord.attributes.event.description'), class: 'form-control'%>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label text-sm-end">
+      <%= f.label :image %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.file_field :image, class: 'form-control custom-file-input', id: 'customFile', accept: 'image/*' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-10 offset-sm-2">
+      <%= f.submit t('events.form.submit'), class: 'btn btn-dark' %>
+    </div>
+  </div>
+<% end %>

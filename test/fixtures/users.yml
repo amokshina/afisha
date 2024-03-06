@@ -1,0 +1,21 @@
+# users.yml
+
+one:
+  username: User1
+  usersurname: Surname1
+  email: user1@example.com
+  password_digest: <%= BCrypt::Password.create('Password1') %>
+  created_at: <%= DateTime.now %>
+  updated_at: <%= DateTime.now %>
+  role: 2
+  id: 1
+
+two:
+  username: User2
+  usersurname: Surname2
+  email: user2@example.com
+  password_digest: <%= BCrypt::Password.create('Password2') %>
+  created_at: <%= DateTime.now %>
+  updated_at: <%= DateTime.now %>
+  role: 0
+  id: 2

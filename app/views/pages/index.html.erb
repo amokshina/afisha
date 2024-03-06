@@ -1,0 +1,72 @@
+<% provide :page_title, t('menu.home') %>
+
+<% if user_signed_in? %>
+  <h1><%= t('my_events.title') %> <i class="bi bi-bookmark-heart-fill"></i></h1>
+  <%= form_tag(root_path, method: :get, class: 'd-flex align-items-center') do %>
+    <div class="form-check me-3">
+      <%= check_box_tag(:past_events, 1, params[:past_events].present?, class: 'form-check-input') %>
+      <%= label_tag(:past_events, t('my_events.show_all_events'), class: 'form-check-label') %>
+    </div>
+    <%= submit_tag(t('my_events.filter'), class: 'btn btn-dark') %>
+  <% end %>
+  <div class="container mt-4">
+    <% @user_events.each_slice(3) do |events_slice| %>
+      <div class="row">
+        <% events_slice.each do |event| %>
+          <div class="col-md-4 mb-4">
+            <div class="card" style="width: 400px; height: 400px; overflow: hidden; border-radius: 10px;" data-info-link="<%= event_path(event) %>">
+              <% if event.image.attached? %>
+                <%= image_tag event.image, class: 'card-img-top', alt: t('events.image_alt'), style: 'height: 100%; object-fit: cover;' %>
+              <% else %>
+                <%= image_tag 'https://sun9-50.userapi.com/impf/nn82JlGK87gxDzhVP51Mcphr37Ye_8dsDWXNGQ/d1uhVpHKJyI.jpg?size=1280x966&quality=96&sign=41d7b837f52a40023c41b4630ea1a698&type=album',
+                              class: 'card-img-top', alt: t('events.image_alt'), style: 'height: 100%; object-fit: cover;' %>
+              <% end %>
+              <div class="card-img-overlay text-white">
+                <h3 class="card-title fw-bold">
+                  <%= event.title %>
+                </h3>
+                <h6 class="card-text"><%= t('events.event_types.' + event.event_type) %></h6>
+                <p class="card-text"><%= l(event.event_date, format: :long) %>, <%= truncate event.place, length: 25 %></p>
+              </div>
+            </div>
+            <br>
+            <div class="d-flex">
+              <%= link_to t('events.info'), event_path(event), class: "btn btn-outline-dark mx-2" %>
+              <%= link_to t('my_events.delete'), remove_registration_event_path(event),
+                          data: { turbo_confirm: t('my_events.confirmation'), turbo_method: :delete }, class: "btn btn-outline-dark mx-2" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+<% else %>
+
+  <h1 class="text-center"><%= t('welcome.title') %></h1>
+  <p><%= t('welcome.sign_up_or_log_in') %></p>
+  <p><%= t('welcome.registered_events_page') %></p>
+  <h2><%= t('welcome.recommendations') %></h2>
+  <div class="row">
+    <% @events.first(3).each do |event| %>
+      <div class="col-md-4 mb-4">
+        <div class="card" style="width: 400px; height: 400px; overflow: hidden; border-radius: 10px;" data-info-link="<%= event_path(event) %>">
+          <% if event.image.attached? %>
+            <%= image_tag event.image, class: 'card-img-top', alt: t('events.image_alt'), style: 'height: 100%; object-fit: cover;' %>
+          <% else %>
+            <%= image_tag 'https://sun9-50.userapi.com/impf/nn82JlGK87gxDzhVP51Mcphr37Ye_8dsDWXNGQ/d1uhVpHKJyI.jpg?size=1280x966&quality=96&sign=41d7b837f52a40023c41b4630ea1a698&type=album',
+                          class: 'card-img-top', alt: t('events.image_alt'), style: 'height: 100%; object-fit: cover;' %>
+          <% end %>
+          <div class="card-img-overlay text-white">
+            <h3 class="card-title fw-bold">
+              <%= event.title %>
+            </h3>
+            <h6 class="card-text"><%= t('events.event_types.' + event.event_type) %></h6>
+            <p class="card-text"><%= l(event.event_date, format: :long) %>, <%= truncate event.place, length: 25 %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+<% end %>

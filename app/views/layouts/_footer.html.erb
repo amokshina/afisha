@@ -1,0 +1,19 @@
+  <footer class="text-center text-white d-flex justify-content-between mt-auto" style="background-color: #282828; bottom: 0;top: 0; ">
+    <div class="dropdown mr-3 p-4 pb-0 mb-3" style="text-align: left;">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= I18n.locale.to_s.upcase %>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="languageDropdown">
+        <%= link_to("English", url_for(locale: 'en'), class: "dropdown-item") %>
+        <%= link_to("Русский", url_for(locale: 'ru'), class: "dropdown-item") %>
+      </div>
+    </div>
+    <div class="container p-4 pb-0 mx-auto">
+      <div class="text-center">
+        © 2023 Copyright:
+        <a class="text-white" href="https://fikiwiki.com/uploads/posts/2022-02/1644827475_35-fikiwiki-com-p-kartinki-smeshnie-krasivie-i-milie-pro-kot-37.jpg">Мокшина А.И. ИУ6-34Б</a>
+      </div>
+    </div>
+
+  </footer>
+
